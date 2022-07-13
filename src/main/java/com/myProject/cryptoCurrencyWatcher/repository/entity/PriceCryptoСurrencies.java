@@ -11,7 +11,7 @@ import java.sql.Timestamp;
 import java.util.Objects;
 
 @Entity
-@Table (name = "pricecryptocurrencies")
+@Table (name = "prices")
 public class PriceCryptoСurrencies {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
