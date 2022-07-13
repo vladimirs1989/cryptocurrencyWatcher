@@ -1,4 +1,4 @@
-package com.myProject.cryptoCurrencyWatcher;
+package com.myProject.cryptoCurrencyWatcher.controller;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
