@@ -1,6 +1,5 @@
 package com.myProject.cryptoCurrencyWatcher.repository;
 
-import com.myProject.cryptoCurrencyWatcher.repository.entity.Crypto;
 import com.myProject.cryptoCurrencyWatcher.repository.entity.PriceBTC;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;

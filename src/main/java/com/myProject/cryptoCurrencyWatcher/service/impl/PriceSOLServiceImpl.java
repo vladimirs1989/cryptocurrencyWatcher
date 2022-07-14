@@ -65,6 +65,7 @@ public class PriceSOLServiceImpl implements PriceSOLService {
                 content.append(inputLine);
             }
             String s = content.toString();
+            in.close();
             return parse(s.substring(1, s.length() - 1));
 
         } catch (final Exception ex) {
