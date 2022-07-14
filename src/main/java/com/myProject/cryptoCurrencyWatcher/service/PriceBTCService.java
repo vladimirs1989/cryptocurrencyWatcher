@@ -8,6 +8,6 @@ public interface PriceBTCService {
 
     BigDecimal getPriceBTC();
 
-    PriceBTC createPriceBTC ();
+    PriceBTC createPriceBTC();
 
 }

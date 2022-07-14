@@ -87,6 +87,19 @@ CREATE TABLE IF NOT EXISTS price_eth(
 TRUNCATE price_eth CASCADE
 */
 
+/*
+DROP TABLE IF EXISTS price_sol;
+*/
+
+CREATE TABLE IF NOT EXISTS price_sol(
+    id BIGSERIAL PRIMARY KEY,
+    request_time TIMESTAMP,
+    price_sol DECIMAL
+);
+
+/*
+TRUNCATE price_sol CASCADE
+*/
 
 
 
