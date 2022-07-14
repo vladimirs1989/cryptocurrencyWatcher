@@ -2,8 +2,6 @@ package com.myProject.cryptoCurrencyWatcher.repository.entity;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.EnumType;
-import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -12,7 +10,7 @@ import java.math.BigDecimal;
 import java.util.Objects;
 
 @Entity
-@Table (name = "users")
+@Table(name = "users")
 public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -23,7 +21,6 @@ public class User {
     private String userName;
 
     @Column(name = "userchosesymbol")
-    @Enumerated(EnumType.STRING)
     private String userChoseSymbol;
 
     @Column(name = "pricecurrency")

@@ -1,8 +1,8 @@
 package com.myProject.cryptoCurrencyWatcher.service.impl;
 
-import com.myProject.cryptoCurrencyWatcher.repository.PriceBTCRepository;
-import com.myProject.cryptoCurrencyWatcher.repository.entity.PriceBTC;
-import com.myProject.cryptoCurrencyWatcher.service.PriceBTCService;
+import com.myProject.cryptoCurrencyWatcher.repository.PriceETHRepository;
+import com.myProject.cryptoCurrencyWatcher.repository.entity.PriceETH;
+import com.myProject.cryptoCurrencyWatcher.service.PriceETHService;
 import org.json.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.scheduling.annotation.Scheduled;
@@ -17,42 +17,42 @@ import java.net.HttpURLConnection;
 import java.net.URL;
 import java.time.LocalDateTime;
 
-@Service("priceBTCService")
+@Service("priceETHService")
 @Transactional
-public class PriceBTCServiceImpl implements PriceBTCService {
+public class PriceETHServiceImpl implements PriceETHService {
 
-    private PriceBTCRepository priceBTCRepository;
+    private PriceETHRepository priceETHRepository;
 
     @Autowired
-    public PriceBTCServiceImpl(PriceBTCRepository priceBTCRepository) {
-        this.priceBTCRepository = priceBTCRepository;
+    public PriceETHServiceImpl(PriceETHRepository priceETHRepository) {
+        this.priceETHRepository = priceETHRepository;
     }
 
     @Override
-    public BigDecimal getPriceBTC() {
-        BigDecimal priceBtc = priceBTCRepository.findPriceBTC();
-        return priceBtc;
+    public BigDecimal getPriceETH() {
+        BigDecimal priceEth = priceETHRepository.findPriceETH();
+        return priceEth;
     }
 
     @Override
     @Scheduled(fixedDelay = 60 * 1000)
-    public PriceBTC createPriceBTC() {
-        PriceBTC priceBTC = new PriceBTC();
+    public PriceETH createPriceETH() {
+        PriceETH priceETH = new PriceETH();
 
         try {
-            priceBTC.setPriceBTC(priceBtcFromRequest());
+            priceETH.setPriceETH(priceEthFromRequest());
         } catch (IOException e) {
             e.printStackTrace();
         }
 
         LocalDateTime dateTime = LocalDateTime.now();
-        priceBTC.setRequestTime(dateTime);
+        priceETH.setRequestTime(dateTime);
 
-        return priceBTCRepository.save(priceBTC);
+        return priceETHRepository.save(priceETH);
     }
 
-    public BigDecimal priceBtcFromRequest() throws IOException {
-        final URL url = new URL("https://api.coinlore.net/api/ticker/?id=90");
+    public BigDecimal priceEthFromRequest() throws IOException {
+        final URL url = new URL("https://api.coinlore.net/api/ticker/?id=80");
         final HttpURLConnection con = (HttpURLConnection) url.openConnection();
         con.setRequestMethod("GET");
         con.setRequestProperty("Content-Type", "application/json");
