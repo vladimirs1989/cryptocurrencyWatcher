@@ -70,7 +70,7 @@ public class PriceBTCServiceImpl implements PriceBTCService {
 
         } catch (final Exception ex) {
             ex.printStackTrace();
-            return BigDecimal.ZERO;
+            return BigDecimal.TEN;
         }
 
     }

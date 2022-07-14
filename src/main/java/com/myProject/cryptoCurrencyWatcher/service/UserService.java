@@ -6,6 +6,8 @@ import java.util.List;
 
 public interface UserService {
 
+    Iterable<User> findAll();
+
     List<User> findBySymbol(String symbol);
 
     User createUser (User user);
