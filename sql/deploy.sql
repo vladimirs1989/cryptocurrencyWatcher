@@ -41,7 +41,51 @@ VALUES ('2021-12-02', 10.4, 8.6, 12.25),
        ('2021-12-02', 10.0, 8.4, 12.1),
        ('2021-12-02', 10.1, 8.45, 12.05);
 
+/*
+DROP TABLE IF EXISTS crypto;
+*/
 
+CREATE TABLE IF NOT EXISTS crypto(
+    id INTEGER PRIMARY KEY,
+    symbol VARCHAR(255)
+);
+
+/*
+TRUNCATE crypto CASCADE
+*/
+
+INSERT INTO crypto (id, symbol)
+VALUES (90, 'BTC'),
+       (80, 'ETH'),
+       (48543, 'SOL');
+
+/*
+DROP TABLE IF EXISTS price_btc;
+*/
+
+CREATE TABLE IF NOT EXISTS price_btc(
+    id BIGSERIAL PRIMARY KEY,
+    request_time TIMESTAMP,
+    price_btc DECIMAL
+);
+
+/*
+TRUNCATE price_btc CASCADE
+*/
+
+/*
+DROP TABLE IF EXISTS price_eth;
+*/
+
+CREATE TABLE IF NOT EXISTS price_eth(
+    id BIGSERIAL PRIMARY KEY,
+    request_time TIMESTAMP,
+    price_eth DECIMAL
+);
+
+/*
+TRUNCATE price_eth CASCADE
+*/
 
 
 

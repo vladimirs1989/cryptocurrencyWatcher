@@ -24,7 +24,7 @@ public class User {
 
     @Column(name = "userchosesymbol")
     @Enumerated(EnumType.STRING)
-    private Currencies userChoseSymbol;
+    private String userChoseSymbol;
 
     @Column(name = "pricecurrency")
     private BigDecimal priceCurrency;
@@ -45,11 +45,11 @@ public class User {
         this.userName = userName;
     }
 
-    public Currencies getUserChoseSymbol() {
+    public String getUserChoseSymbol() {
         return userChoseSymbol;
     }
 
-    public void setUserChoseSymbol(Currencies userChoseSymbol) {
+    public void setUserChoseSymbol(String userChoseSymbol) {
         this.userChoseSymbol = userChoseSymbol;
     }
 
