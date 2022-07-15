@@ -24,10 +24,10 @@ public class UserServiceImpl implements UserService {
 
     private static final Logger logger = LogManager.getLogger(UserServiceImpl.class);
 
-    private UserRepository userRepository;
-    private PriceBTCService priceBTCService;
-    private PriceETHService priceETHService;
-    private PriceSOLService priceSOLService;
+    private final UserRepository userRepository;
+    private final PriceBTCService priceBTCService;
+    private final PriceETHService priceETHService;
+    private final PriceSOLService priceSOLService;
 
     @Autowired
     public UserServiceImpl(UserRepository userRepository,

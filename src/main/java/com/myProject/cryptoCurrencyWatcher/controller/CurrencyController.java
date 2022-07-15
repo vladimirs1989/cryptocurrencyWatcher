@@ -8,15 +8,12 @@ import com.myProject.cryptoCurrencyWatcher.service.PriceETHService;
 import com.myProject.cryptoCurrencyWatcher.service.PriceSOLService;
 import com.myProject.cryptoCurrencyWatcher.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
-import java.io.IOException;
 import java.math.BigDecimal;
 import java.util.List;
 
@@ -25,11 +22,11 @@ import java.util.List;
 
 public class CurrencyController {
 
-    private CryptoService cryptoService;
-    private PriceBTCService priceBTCService;
-    private PriceETHService priceETHService;
-    private PriceSOLService priceSOLService;
-    private UserService userService;
+    private final CryptoService cryptoService;
+    private final PriceBTCService priceBTCService;
+    private final PriceETHService priceETHService;
+    private final PriceSOLService priceSOLService;
+    private final UserService userService;
 
     @Autowired
     public CurrencyController(CryptoService cryptoService,
@@ -46,8 +43,7 @@ public class CurrencyController {
 
     @GetMapping
     public List<Crypto> listCryptoCurrency() {
-        List<Crypto> cryptos = cryptoService.getAllCryptos();
-        return cryptos;
+        return cryptoService.getAllCryptos();
     }
 
     @GetMapping("/BTC")
@@ -65,38 +61,13 @@ public class CurrencyController {
         return priceSOLService.getPriceSOL();
     }
 
-    @GetMapping("/notyfy")
-    public  String Create (@RequestParam String userName,
-                           @RequestParam String symbol){
+    @PostMapping("/notify")
+    public String Create(@RequestParam String userName,
+                         @RequestParam String symbol) {
         User user = new User();
         user.setUserName(userName);
         user.setUserChoseSymbol(symbol);
         User createdUser = userService.createUser(user);
-        //user.setPriceCurrency();
         return createdUser.toString();
-    }
-
-
-
-    //for testing
-    @GetMapping("/doBTC")
-    public String listsB() throws IOException {
-        return priceBTCService.createPriceBTC().toString();
-    }
-
-    @GetMapping("/doETH")
-    public String listsE() throws IOException {
-        return priceETHService.createPriceETH().toString();
-    }
-
-    @GetMapping("/doSOL")
-    public String listsS() throws IOException {
-        return priceSOLService.createPriceSOL().toString();
-    }
-
-    @GetMapping("symbol/{symbol}")
-    public String execute( @PathVariable String symbol) {
-        List<User> users = userService.findBySymbol(symbol);
-        return users.toString();
     }
 }

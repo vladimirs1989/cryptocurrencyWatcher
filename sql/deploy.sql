@@ -14,10 +14,10 @@ TRUNCATE users CASCADE
 */
 
 INSERT INTO users (username, userchosesymbol, pricecurrency)
-VALUES ('Volkov', 'BTC', 12.25),
-       ('Zaycev', 'ETH', 5.65),
-       ('Gusev', 'BTC', 65.21),
-       ('Kotov', 'SOL', 10.5);
+VALUES ('Volkov', 'BTC', 20528.30),
+       ('Zaycev', 'ETH', 1175.13),
+       ('Gusev', 'BTC', 20527.10),
+       ('Kotov', 'SOL', 35.98);
 
 /*
 DROP TABLE IF EXISTS crypto;
