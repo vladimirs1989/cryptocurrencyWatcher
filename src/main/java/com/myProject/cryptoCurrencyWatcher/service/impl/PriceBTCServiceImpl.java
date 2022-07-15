@@ -38,13 +38,11 @@ public class PriceBTCServiceImpl implements PriceBTCService {
     @Scheduled(fixedDelay = 60 * 1000)
     public PriceBTC createPriceBTC() {
         PriceBTC priceBTC = new PriceBTC();
-
         try {
             priceBTC.setPriceBTC(priceBtcFromRequest());
         } catch (IOException e) {
             e.printStackTrace();
         }
-
         LocalDateTime dateTime = LocalDateTime.now();
         priceBTC.setRequestTime(dateTime);
 
