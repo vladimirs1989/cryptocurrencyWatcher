@@ -10,6 +10,6 @@ import java.math.BigDecimal;
 @Repository
 public interface PriceSOLRepository extends JpaRepository<PriceSOL, BigDecimal> {
 
-    @Query(value = "select price_sol from price_sol order by request_time DESC LIMIT 1", nativeQuery = true)
+    @Query(value = "select price_sol from price_sol where price_sol != 0 order by request_time DESC LIMIT 1", nativeQuery = true)
     BigDecimal findPriceSOL();
 }
