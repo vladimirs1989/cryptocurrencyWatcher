@@ -10,6 +10,6 @@ import java.math.BigDecimal;
 @Repository
 public interface PriceBTCRepository extends JpaRepository<PriceBTC, BigDecimal> {
 
-    @Query(value = "select price_btc from price_btc order by request_time DESC LIMIT 1", nativeQuery = true)
+    @Query(value = "select price_btc from price_btc where price_btc != 0 order by request_time DESC LIMIT 1", nativeQuery = true)
     BigDecimal findPriceBTC();
 }

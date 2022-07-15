@@ -84,9 +84,8 @@ public class UserServiceImpl implements UserService {
             }
             if ((oldPrice.multiply(new BigDecimal("0.99")).compareTo(newPrice) >= 0) ||
                     (oldPrice.multiply(new BigDecimal("1.01")).compareTo(newPrice) <= 0)) {
-                BigDecimal b = newPrice.subtract(oldPrice);
 
-                logger.warn("WARN " + user.getUserChoseSymbol() + " " + user.getUserName() + " " + b);
+                logger.warn("WARN " + user.getUserChoseSymbol() + " " + user.getUserName() + " " + "% - did not have time");
             }
         }
     }
